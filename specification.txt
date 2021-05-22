@@ -1,0 +1,12 @@
+
+add a new customer  ->OK
+search customers by name  ->OK
+display details of an order ->OK
+place orders to store locations for customers ->OK
+view order history of customer ->Ok
+view order history of location ->OK
+view location inventory
+The customer should be able to purchase multiple products ->Ok
+Order histories should have the option to be sorted by date (latest to oldest and vice versa) or cost (least expensive to most expensive)
+The manager should be able to repl
+enish inventory
