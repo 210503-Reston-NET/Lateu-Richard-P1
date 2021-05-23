@@ -13,12 +13,13 @@ namespace StoreTests
             //Arrange
             //Item item
             Order order=new Order();
-            order.OrderDate=DateTime.Now;      
+            order.OrderDate=DateTime.Now;
 
             //Act
-                    
+
             //Assert
-            Assert.True(order.Items.Count>0);
+            Assert.Throws<NullReferenceException>(() => order.Items.Count > 0);
+          
 
         }
 
@@ -50,11 +51,11 @@ namespace StoreTests
             //Act
             int quantityOrder=20000;
             //inventory.product=p1;
-            inventory.quantity=5000;
+            inventory.Quantity=5000;
                 
 
             //Assert
-            Assert.False(quantityOrder<=inventory.quantity);
+            Assert.False(quantityOrder<=inventory.Quantity);
 
         }
 

@@ -8,11 +8,16 @@ namespace StoreTests
     public class CustomerTest
     {
         public bool AddressStartingPoint(string address){
-            string temp=address.Substring(0,2);
-            return Regex.IsMatch(temp, @"^\d+$");
+            if ((address!=null) && (!address.Equals("")))
+            {
+                string temp = address.Substring(0, 2);
+                return Regex.IsMatch(temp, @"^\d+$");
+            }
+            return false;
+            
         }
         [Fact]
-        public void AddressShouldSetValidateData()
+        public void AddressShouldBeginWithDigit()
         {
             //Arrange
             string address="5620 SMYRNA GA";
@@ -27,14 +32,24 @@ namespace StoreTests
         }
 
         [Theory]
-        [InlineData("")]
-        [InlineData("California")]
-        [InlineData(null)]
+        [InlineData("56 California")]
         [InlineData("1007 Smyrna GA")]
 
-        public void AddressShouldNotSetInvalideData(string input){
+        public void AddressShouldSetvalideData(string input){
             Assert.True(AddressStartingPoint(input));
         }
+
+        [Theory]
+        [InlineData("")]
+        [InlineData(null)]
+   
+
+        public void AddressCreationShouldFailOnInvalideData(string input)
+        {
+            Assert.False(AddressStartingPoint(input));
+            //Assert.Throws<NullReferenceException>(()=>input);
+        }
+
 
 
         [Fact]

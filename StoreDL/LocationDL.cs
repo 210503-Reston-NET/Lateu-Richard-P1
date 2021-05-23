@@ -35,7 +35,7 @@ namespace StoreDL
         {
 
             return _context.Locations.Select(
-                  location => new Model.Location(location.Name, location.Address)
+                  location => location
               ).ToList();
 
         }

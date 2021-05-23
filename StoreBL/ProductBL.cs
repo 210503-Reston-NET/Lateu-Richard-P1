@@ -21,22 +21,22 @@ namespace StoreBL
 
        public Product AddProduct(Product p){
             Inventory inv=new Inventory();
-            Product product=new Product();
-            inv.LocationId=_locationDL.FindLocationByName("California").Id;
-            inv.Inventorytype="IN";
-            inv.OrderDate=DateTime.Now;
-            product=_productDL.AddProduct(p);
-            inv.ProductId=_productDL.FindProductByName(p.Name).Id;
-            inv.Quantity=p.AvailableStock;
+            //inv.LocationId=_locationDL.FindLocationByName("California").Id;
+            //inv.Inventorytype="IN";
+            //inv.OrderDate=DateTime.Now;
+            Product product= _productDL.AddProduct(p);
+            //inv.ProductId=_productDL.FindProductByName(p.Name).Id;
+            //inv.Quantity=p.AvailableStock;
             
             //Console.WriteLine("invetory-------");
-            _orderDLAccess.AddToInventory(inv);
+            //_orderDLAccess.AddToInventory(inv);
             
             return product;
          
        }
            public List<Product> GetAllProducts(){
             return _productDL.GetAllProducts();
+            //return new List<Product>();
            }
             public Product FindProductByName(string name){
             return _productDL.FindProductByName(name);

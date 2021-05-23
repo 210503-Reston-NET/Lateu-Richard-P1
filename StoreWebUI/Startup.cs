@@ -28,7 +28,16 @@ namespace StoreWebUI
             services.AddControllersWithViews();
             services.AddDbContext<StoreDBContext>(options=>options.UseNpgsql(Configuration.GetConnectionString("StoreDB")));
             services.AddScoped<ICustomerDL, CustomerDL>();
-            services.AddScoped<ICustomerBL, StoreBL.CustomerBL>();
+            services.AddScoped<ICustomerBL, CustomerBL>();
+            services.AddScoped<ILocationDL, LocationDL>();
+            services.AddScoped<ILocationBL, LocationBL>();
+
+            services.AddScoped<IProductDL, ProductDL>();
+            services.AddScoped<IProductBL, ProductBL>();
+
+            services.AddScoped<IOrderDL, OrderDL>();
+            services.AddScoped<IOrderBL, OrderBL>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

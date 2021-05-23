@@ -31,7 +31,7 @@ namespace StoreDL
         {
 
             return _context.Products.Select(
-                  product => new Model.Product(product.Name, product.Barcode, product.Price, product.AvailableStock)
+                  product => product
               ).ToList();
 
         }
