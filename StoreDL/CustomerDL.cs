@@ -45,7 +45,7 @@ namespace StoreDL
         public Model.Customer FindCustomerById(int customer_id)
         {
 
-            return new Model.Customer();
+            return _context.Customers.Find(customer_id);
         }
 
         public Model.Customer GetCustomerByName(string name)
@@ -55,6 +55,14 @@ namespace StoreDL
             if (found == null) return null;
             return new Model.Customer(found.Id, found.Name, found.Email, found.Phone, found.Address);
 
+        }
+
+        public Model.Customer DeleteCustomer(Model.Customer customer)
+        {
+            Model.Customer toBeDeleted = _context.Customers.First(e => e.Id == customer.Id);
+            _context.Customers.Remove(toBeDeleted);
+            _context.SaveChanges();
+            return customer;
         }
 
 

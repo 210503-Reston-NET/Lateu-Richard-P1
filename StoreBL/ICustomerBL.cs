@@ -9,7 +9,8 @@ namespace StoreBL
 
        List<Customer> GetAllCustomers();
 
-     //public  Customer FindCustomerById(int customer_id);
+      Customer FindCustomerById(int customer_id);
+      Customer DeleteCustomer(Customer customer);
 
  
          void ViewOrderHistoryByCustomer(Customer customer);

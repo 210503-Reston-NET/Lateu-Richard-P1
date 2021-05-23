@@ -12,6 +12,9 @@ namespace StoreDL
        Customer FindCustomerById(int customer_id);
 
        Customer GetCustomerByName(string name);
+
+       Customer DeleteCustomer(Customer customer);
+       
        void ViewOrderHistoryByCustomer(Customer c);
     }
 }
