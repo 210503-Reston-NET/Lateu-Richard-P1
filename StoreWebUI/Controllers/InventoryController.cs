@@ -1,53 +1,54 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using StoreBL;
-using StoreWebUI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using StoreBL;
+using StoreModels;
+using StoreWebUI.Models;
 
 namespace StoreWebUI.Controllers
 {
-    public class OrderController : Controller
+    public class InventoryController : Controller
     {
-        private ILocationBL _locationBL;
-        private ICustomerBL _customerBL;
-        private IProductBL _productBL;
+        private IInventoryBL inventoryBL;
+        // GET: InventoryController
 
-        public OrderController(ILocationBL l, ICustomerBL b, IProductBL p) { this._locationBL = l; this._customerBL = b;  this._productBL = p; }
-        // GET: OrderController
-        public ActionResult Index()
-           
+        public InventoryController(IInventoryBL e) { this.inventoryBL = e; }
+        public ActionResult Index(int locationID)
         {
-            List<OrderVM> l = new List<OrderVM>() { };
-            return View(l);
+            //List<Inventory> inventories = new List<Inventory>();
+            List<InventoryVM> inventoriesVM = new List<InventoryVM>();
+
+            if (locationID != 0)
+            {
+                inventoriesVM = inventoryBL.GetInventoriesByLocation(locationID).Select(
+                    inventory => new InventoryVM(inventory)).ToList();
+            }
+            else
+            {
+                
+                inventoriesVM = inventoryBL.GetAllInventories().Select(
+                  inventory => new InventoryVM(inventory)).ToList();
+
+            }
+            return View(inventoriesVM);
         }
 
-        // GET: OrderController/Details/5
+        // GET: InventoryController/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: OrderController/Create
+        // GET: InventoryController/Create
         public ActionResult Create()
         {
-            //ViewBag.Locations = _locationBL.GetAllLocations().ToList();       
-            //ViewBag.customers = _customerBL.GetAllCustomers().ToList();
-            // ViewBag.products = _productBL.GetAllProducts().ToList();
-       
-            string orderID = DateTime.Now.ToString().Substring(0, 17).Replace("/", "").Replace(":", "").Replace(" ", "");
-            var model =new  OrderVM();
-            ViewData.Add("orderID", orderID);
-            model.Locations = _locationBL.GetAllLocations().ToList();
-            model.customers = _customerBL.GetAllCustomers().ToList();
-            model.products = _productBL.GetAllProducts().ToList();
-
-            return View(model);
+            return View();
         }
 
-        // POST: OrderController/Create
+        // POST: InventoryController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
@@ -62,13 +63,13 @@ namespace StoreWebUI.Controllers
             }
         }
 
-        // GET: OrderController/Edit/5
+        // GET: InventoryController/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: OrderController/Edit/5
+        // POST: InventoryController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -83,13 +84,13 @@ namespace StoreWebUI.Controllers
             }
         }
 
-        // GET: OrderController/Delete/5
+        // GET: InventoryController/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: OrderController/Delete/5
+        // POST: InventoryController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)

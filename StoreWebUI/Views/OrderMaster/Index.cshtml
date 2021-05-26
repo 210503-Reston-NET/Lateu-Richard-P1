@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Master order form</h1>
+<div class="container">
+    <div class="master">
+        <h3> Order</h3>
+        <table class="table table-responsive">
+            <tr>
+                <td> Order Name</td>
+                <td>
+                    <input type="text" id="orderId" class="form-control" />
+                    <span class="error">Oder name is required</span>
+                </td>
+                <td> Order Date</td>
+                <td>
+                    <input type="text" id="OrderDate" class="form-control" />
+                    <span class="error">Valid order date required</span>
+                </td>
+            </tr>
+
+
+        </table>
+
+    </div>
+
+    <div class="detais">
+        <h3>Order lines</h3>
+        <table class="table table-responsive">
+            <tr>
+                <td>Product</td>
+                <td>Quantity</td>
+                <td>Price</td>
+            </tr>
+            <tr class="mycontainer" id="mainrow">
+                <td>
+                    <select id="productId" class=" product form-control">
+                        <option>Select</option>
+                    </select>
+                    <span class="error">Select product</span>
+                </td>
+                <td>
+                    <input type="number" id="Quantity" class="Quantity form-control"/>
+                    <span class="error"> Valid Quantity required</span>
+                </td>
+                <td>
+                    <input type="button" value="Add" width="80px" class="btn btn-primary"/>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+    <div id="OrderItems">
+         
+        <table class="table table-responsive" id="orderItemsDetails"></table>
+        <span id="OrderItemsError"  style="color:red"></span>
+    </div>
+    <div style="padding:10px 0; text-align:right">
+        <input id="submit" type="button" value="Save Order" class="btn btn-warning" style=" padding:10px 20px"/>
+    </div>
+</div>
+<script type="text/javascript">
+    $(funtion(){
+        $('OrderDate').datepicker({
+            dateFormat:mm-dd-yy
+        })
+    })
+</script>
+
+<style>
+    span.error{
+        display:block;
+        visibility:hidden;
+        color:red;
+        font-size:90%;
+    }
+
+    tr.error{
+        background-color:rgba(255,0,0,0.24);
+    }
+
+</style>

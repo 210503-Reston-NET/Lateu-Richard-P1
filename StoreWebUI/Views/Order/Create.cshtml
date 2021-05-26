@@ -1,0 +1,80 @@
+﻿@model StoreWebUI.Models.OrderVM
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>OrderVM</h4>
+<hr />
+<div class="container">
+
+    <form asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="row">
+            <div class="form-group col-md-4">
+
+                <span>Customer:</span>
+                @Html.DropDownListFor(m => m.CustomerId, Model.customers.Select(e => new SelectListItem() { Value = e.Id.ToString(), Text = e.Name }))
+
+            </div>
+
+            <div class="form-group col-md-4">
+                <span>Location:</span>
+                @Html.DropDownListFor(m => m.LocationId, Model.Locations.Select(d => new SelectListItem() { Value = d.Id.ToString(), Text = d.Name }))
+            </div>
+          
+            <div class="form-group col-md-4">
+                <label asp-for="Name" class="control-label">Order Id.</label>
+                <input asp-for="Name" class="form-control" value=@ViewData["orderID"] readonly/>
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-4">
+
+                <div class="form-group">
+                    <span>Product:</span>
+                    @Html.DropDownListFor(m => m.Id, Model.products.Select(d => new SelectListItem() { Value = d.Id.ToString(), Text = d.Name }))
+                    <br />
+                    <label asp-for="qty1" class="control-label">Quantity</label>
+                    <input asp-for="qty1" class="form-control"  />
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+
+                <div class="form-group">
+                    <span>Product:</span>
+                    @Html.DropDownListFor(m => m.Id, Model.products.Select(d => new SelectListItem() { Value = d.Id.ToString(), Text = d.Name }))
+                    <br />
+                    <label asp-for="qty2" class="control-label">Quantity</label>
+                    <input asp-for="qty2" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+
+                <div class="form-group">
+                    <span>Product:</span>
+                    @Html.DropDownListFor(m => m.Id, Model.products.Select(d => new SelectListItem() { Value = d.Id.ToString(), Text = d.Name }))
+                    <br />
+                    <label asp-for="qty3" class="control-label">Quantity</label>
+                    <input asp-for="qty3" class="form-control" />
+                </div>
+            </div>
+        </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+
+</form>
+   
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
