@@ -50,10 +50,12 @@ namespace StoreWebUI.Controllers
         // POST: OrderController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(OrderVM collection)
         {
             try
             {
+               
+                System.Diagnostics.Debug.WriteLine(collection.ToString());
                 return RedirectToAction(nameof(Index));
             }
             catch

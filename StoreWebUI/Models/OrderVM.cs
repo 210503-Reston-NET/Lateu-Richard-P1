@@ -13,6 +13,9 @@ namespace StoreWebUI.Models
         public int qty1 { get; set; }
         public int qty2 { get; set; }
         public int qty3 { get; set; }
+        public int pr1 { get; set; }
+        public int pr2 { get; set; }
+        public int pr3 { get; set; }
         public DateTime OrderDate { get; set; }
         public double OrderTotal { get; set; }
         public string Name { get; set; }
@@ -20,5 +23,10 @@ namespace StoreWebUI.Models
         public IEnumerable<Location> Locations { set; get; }
         public IEnumerable<Product> products { set; get; }
         public List<Item> Items { get; set; }
+
+        public override string ToString()
+        {
+            return $" Name:{Name} CustomerId {CustomerId} LocationId {LocationId}";
+        }
     }
 }

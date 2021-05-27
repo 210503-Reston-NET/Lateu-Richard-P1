@@ -39,8 +39,9 @@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                @Html.ActionLink("My Inventory", "Index", "Inventory", new { id = item.Id })
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Inventory", "Index", "Inventory", new { id = item.Id }) |
+                @Html.ActionLink("Orders", "Index","Order", new { id = item.Id })
             </td>
         </tr>
 }

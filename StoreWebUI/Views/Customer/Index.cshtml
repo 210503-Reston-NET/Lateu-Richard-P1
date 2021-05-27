@@ -46,7 +46,7 @@
                 @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                @Html.ActionLink("My Order", "Index","Order", new { id = item.Id })
+                @Html.ActionLink("Orders", "Index","Order", new { CustomerId = item.Id })
 
                 <a asp-action="Edit" asp-rout-id="@item.Id" class="btn btn-primary">Update</a>
                 <input type="button" value="Create" onclick="location.href='@Url.Action("Create", "Location")'" />

@@ -16,11 +16,17 @@ namespace StoreWebUI.Controllers
         // GET: InventoryController
 
         public InventoryController(IInventoryBL e) { this.inventoryBL = e; }
-        public ActionResult Index(int locationID)
+        public ActionResult Index(int id)
         {
             //List<Inventory> inventories = new List<Inventory>();
             List<InventoryVM> inventoriesVM = new List<InventoryVM>();
+            int locationID = int.Parse(this.RouteData.Values["id"].ToString());
 
+            Console.WriteLine("-------------------------");
+
+            Console.WriteLine(locationID);
+         
+           
             if (locationID != 0)
             {
                 inventoriesVM = inventoryBL.GetInventoriesByLocation(locationID).Select(
@@ -34,6 +40,7 @@ namespace StoreWebUI.Controllers
 
             }
             return View(inventoriesVM);
+            return View();
         }
 
         // GET: InventoryController/Details/5

@@ -4,9 +4,8 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
 
-<h4>OrderVM</h4>
+<h4>Add Order</h4>
 <hr />
 <div class="container">
 
@@ -41,7 +40,10 @@
                     @Html.DropDownListFor(m => m.Id, Model.products.Select(d => new SelectListItem() { Value = d.Id.ToString(), Text = d.Name }))
                     <br />
                     <label asp-for="qty1" class="control-label">Quantity</label>
-                    <input asp-for="qty1" class="form-control"  />
+                    <input asp-for="qty1" class="form-control" />
+                    <br />
+                    <label asp-for="pr1" class="control-label">Quantity</label>
+                    <input asp-for="pr1" class="form-control" />
                 </div>
             </div>
             <div class="form-group col-md-4">
@@ -52,6 +54,9 @@
                     <br />
                     <label asp-for="qty2" class="control-label">Quantity</label>
                     <input asp-for="qty2" class="form-control" />
+                    <br />
+                    <label asp-for="pr2" class="control-label">Price</label>
+                    <input asp-for="pr2" class="form-control" />
                 </div>
             </div>
             <div class="form-group col-md-4">
@@ -62,12 +67,15 @@
                     <br />
                     <label asp-for="qty3" class="control-label">Quantity</label>
                     <input asp-for="qty3" class="form-control" />
+                    <br />
+                    <label asp-for="pr3" class="control-label">Price</label>
+                    <input asp-for="pr3" class="form-control" />
                 </div>
             </div>
         </div>
 
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-success" />
             </div>
 
 </form>
