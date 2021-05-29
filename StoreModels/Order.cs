@@ -13,28 +13,29 @@ namespace StoreModels
         public int LocationId { get; set; }
         public DateTime OrderDate { get; set; }
         public double OrderTotal { get; set; }
-        public string Name  {get; set;}
+        public string Name { get; set; }
 
-        public List<Item> Items{get;set;}
-        public Order(){}
-        public Order(int customer_id, int location_id,DateTime orderDate,double orderTotal,string name){
-            this.CustomerId=customer_id;
-            this.LocationId=location_id;
-            this.OrderDate=orderDate;
-            this.OrderTotal=orderTotal;
-            this.Name=name;
+        public List<Item> Items { get; set; }
+        public Order() { }
+        public Order(int customer_id, int location_id, DateTime orderDate, double orderTotal, string name) {
+            this.CustomerId = customer_id;
+            this.LocationId = location_id;
+            this.OrderDate = orderDate;
+            this.OrderTotal = orderTotal;
+            this.Name = name;
         }
 
-         public Order(int Id,int customer_id, int location_id,DateTime orderDate,double orderTotal,string name):this(customer_id,location_id,orderDate,orderTotal,name){
-            this.CustomerId=customer_id;
-            this.LocationId=location_id;
-            this.OrderDate=orderDate;
-            this.OrderTotal=orderTotal;
-            this.Name=name;
-            this.Id=Id;
+        public Order(int Id, int customer_id, int location_id, DateTime orderDate, double orderTotal, string name) : this(customer_id, location_id, orderDate, orderTotal, name) {
+            this.CustomerId = customer_id;
+            this.LocationId = location_id;
+            this.OrderDate = orderDate;
+            this.OrderTotal = orderTotal;
+            this.Name = name;
+            this.Id = Id;
 
         }
 
+        public virtual Customer Customer{get;set;}
           public override string ToString()
         {
           //  return base.ToString();

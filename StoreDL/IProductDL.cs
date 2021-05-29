@@ -10,6 +10,7 @@ namespace StoreDL
            Product AddProduct(Product p);
             List<Product> GetAllProducts();
             Product FindProductByName(string name);
-           
+            Product FindProductById(int id);
+
     }
 }

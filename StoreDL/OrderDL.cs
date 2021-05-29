@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using Model = StoreModels;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using StoreModels;
+
 namespace StoreDL
 {
     public class OrderDL : IOrderDL
@@ -147,6 +149,16 @@ namespace StoreDL
         public void PlaceOrder(Model.Customer customer, Model.Location location, List<Model.Item> items)
         {
 
+        }
+
+        public List<Order> FindAllOrders()
+        {
+         return  _context.Orders.Include("Customer").Select(
+               order=>order).ToList();
+        }
+
+       public Order FindOrderById(int id) {
+            return _context.Orders.Find(id);
         }
     }
 }

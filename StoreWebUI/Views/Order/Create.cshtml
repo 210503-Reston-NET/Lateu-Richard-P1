@@ -33,45 +33,33 @@
         </div>
 
         <div class="row">
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-6">
 
                 <div class="form-group">
                     <span>Product:</span>
-                    @Html.DropDownListFor(m => m.Id, Model.products.Select(d => new SelectListItem() { Value = d.Id.ToString(), Text = d.Name }))
+                    @Html.DropDownListFor(m => m.ProductId1, Model.products.Select(d => new SelectListItem() { Value = d.Id.ToString(), Text = d.Name }))
                     <br />
-                    <label asp-for="qty1" class="control-label">Quantity</label>
-                    <input asp-for="qty1" class="form-control" />
+                    <label asp-for="Qty1" class="control-label">Quantity</label>
+                    <input asp-for="Qty1" class="form-control" />
                     <br />
-                    <label asp-for="pr1" class="control-label">Quantity</label>
-                    <input asp-for="pr1" class="form-control" />
+                    <label asp-for="Price1" class="control-label">Price</label>
+                    <input asp-for="Price1" class="form-control" />
                 </div>
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-6">
 
                 <div class="form-group">
                     <span>Product:</span>
-                    @Html.DropDownListFor(m => m.Id, Model.products.Select(d => new SelectListItem() { Value = d.Id.ToString(), Text = d.Name }))
+                    @Html.DropDownListFor(m => m.ProductId2, Model.products.Select(d => new SelectListItem() { Value = d.Id.ToString(), Text = d.Name }))
                     <br />
-                    <label asp-for="qty2" class="control-label">Quantity</label>
-                    <input asp-for="qty2" class="form-control" />
+                    <label asp-for="Qty2" class="control-label">Quantity</label>
+                    <input asp-for="Qty2" class="form-control" />
                     <br />
-                    <label asp-for="pr2" class="control-label">Price</label>
-                    <input asp-for="pr2" class="form-control" />
+                    <label asp-for="Price2" class="control-label">Price</label>
+                    <input asp-for="Price2" class="form-control" />
                 </div>
             </div>
-            <div class="form-group col-md-4">
-
-                <div class="form-group">
-                    <span>Product:</span>
-                    @Html.DropDownListFor(m => m.Id, Model.products.Select(d => new SelectListItem() { Value = d.Id.ToString(), Text = d.Name }))
-                    <br />
-                    <label asp-for="qty3" class="control-label">Quantity</label>
-                    <input asp-for="qty3" class="form-control" />
-                    <br />
-                    <label asp-for="pr3" class="control-label">Price</label>
-                    <input asp-for="pr3" class="form-control" />
-                </div>
-            </div>
+            
         </div>
 
             <div class="form-group">

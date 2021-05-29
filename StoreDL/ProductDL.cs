@@ -3,6 +3,8 @@ using Model = StoreModels;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using StoreModels;
+
 namespace StoreDL
 {
     public class ProductDL : IProductDL
@@ -42,6 +44,11 @@ namespace StoreDL
             if (response == null) return null;
             return new Model.Product(response.Id, response.Name, response.Price,  response.Barcode,response.AvailableStock);
 
+        }
+
+        public Product FindProductById(int id)
+        {
+           return _context.Products.Find(id);
         }
     }
 }

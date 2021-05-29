@@ -12,10 +12,12 @@ namespace StoreDL
         List<Order> ViewOrderHistoryByLocation(int location_id);
         List<Order> ViewOrderHistoryByCustomer(int customer_id);
         void PlaceOrder(Customer customer, Location l, List<Item> items);
-
+        Order FindOrderById(int id);
         Inventory AddToInventory(Inventory nv);
 
         void updateStock(int pid, int qty);
+
+         List<Order> FindAllOrders();
 
     }
 }

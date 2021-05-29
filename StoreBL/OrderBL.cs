@@ -55,24 +55,25 @@ namespace StoreBL
             return new List<Order>();
         }
 
-        public string buildCode()
+        /*public string buildCode()
         {
             string temp = DateTime.Now.ToString();
             return temp.Substring(0, 17).Replace("/", "").Replace(":", "").Replace(" ", "");
-        }
+        }*/
 
-        public void PlaceOrder(Customer customer, Location location, List<Item> items)
+        public void PlaceOrder(string orderName, double orderTotal, int customerId, int  locationId, List<Item> items)
         {
             Order order = new Order();
             order.OrderDate = DateTime.Now;
             order.OrderTotal = 0;
-            order.CustomerId = customer.Id;
-            order.LocationId = location.Id;
-            order.Name = buildCode();
+            order.CustomerId = customerId;
+            order.LocationId = locationId;
+            order.Name = orderName;
+            order.OrderTotal = orderTotal;
             _orderDLAccess.AddOrder(order);
             Order newOrder = _orderDLAccess.FindOrderByName(order.Name);
             Inventory inv = new Inventory();
-            inv.LocationId = location.Id;
+            inv.LocationId = locationId;
             inv.Inventorytype = "OUT";
             inv.OrderDate = order.OrderDate;
 
@@ -91,5 +92,14 @@ namespace StoreBL
 
         }
 
+        public List<Order> FindAllOrders()
+        {
+          return  _orderDLAccess.FindAllOrders(); ;
+        }
+
+     public    Order FindOrderById(int id)
+        {
+            return _orderDLAccess.FindOrderById(id);
+        }
     }
 }

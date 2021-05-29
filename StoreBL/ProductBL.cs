@@ -48,5 +48,10 @@ namespace StoreBL
             public Product FindProductByName(string name){
             return _productDL.FindProductByName(name);
             }
+
+        public Product FindProductById(int id)
+        {
+            return _productDL.FindProductById(id);
+        }
     }
 }

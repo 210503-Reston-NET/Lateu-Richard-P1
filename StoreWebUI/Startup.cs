@@ -44,6 +44,9 @@ namespace StoreWebUI
             services.AddScoped<IInventoryBL, InventoryBL>();
             services.AddScoped<IInventoryDL, InventoryDL>();
 
+            services.AddScoped<IItemBL, ItemBL>();
+            services.AddScoped<IItemDL, ItemDL>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

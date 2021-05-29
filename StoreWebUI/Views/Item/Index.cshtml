@@ -1,0 +1,58 @@
+﻿@model IEnumerable<StoreWebUI.Models.ItemVM>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h4>OrderId: @ViewData["OrderId"]</h4>
+<h4>Total($): @ViewData["Total"]</h4>
+     
+             
+
+<h6 class="text-danger">Order  lines</h6>
+
+
+
+<p>
+    @Html.ActionLink("Add New Item", "Create", new { id = ViewBag.order.Id })
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.ProductId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UnitPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitPrice)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

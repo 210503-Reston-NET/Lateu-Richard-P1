@@ -40,7 +40,7 @@ namespace StoreWebUI.Controllers
 
             }
             return View(inventoriesVM);
-            return View();
+            
         }
 
         // GET: InventoryController/Details/5

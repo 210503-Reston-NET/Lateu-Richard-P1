@@ -9,7 +9,6 @@ namespace StoreWebUI.Models
 {
     public class CustomerVM
     {
-        private string PhoneNumber;
         public int Id { get; set; }
 
         [Required]

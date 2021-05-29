@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using StoreBL;
+using StoreModels;
 using StoreWebUI.Models;
 using System;
 using System.Collections.Generic;
@@ -14,14 +15,15 @@ namespace StoreWebUI.Controllers
         private ILocationBL _locationBL;
         private ICustomerBL _customerBL;
         private IProductBL _productBL;
-
-        public OrderController(ILocationBL l, ICustomerBL b, IProductBL p) { this._locationBL = l; this._customerBL = b;  this._productBL = p; }
+        private IOrderBL _orderBL;
+        public OrderController(ILocationBL l, ICustomerBL b, IProductBL p,IOrderBL e) { this._locationBL = l; this._customerBL = b;  this._productBL = p;this._orderBL = e; }
         // GET: OrderController
         public ActionResult Index()
            
         {
             List<OrderVM> l = new List<OrderVM>() { };
-            return View(l);
+
+            return View(_orderBL.FindAllOrders().Select(order => new OrderVM(order)).ToList());
         }
 
         // GET: OrderController/Details/5
@@ -54,7 +56,27 @@ namespace StoreWebUI.Controllers
         {
             try
             {
+                List<Item> Items = new List<Item>();
+                Item item1 = new Item();
+                Item item2 = new Item();
+                double total = 0;
+                item1.ProductId = collection.ProductId1;
+                item1.Quantity = collection.Qty1;
+                item1.UnitPrice = collection.Price1;
+                total+= collection.Price1 * collection.Qty1; ;
+
+                item2.ProductId = collection.ProductId2;
+                item2.Quantity = collection.Qty2;
+                item2.UnitPrice = collection.Price2;
+                total += collection.Price2* collection.Qty2;
                
+
+                Items.Add(item1);
+                Items.Add(item2);
+                         
+                //Items.Add(_productBL.)
+                _orderBL.PlaceOrder(collection.Name,total,collection.CustomerId, collection.LocationId, Items);
+
                 System.Diagnostics.Debug.WriteLine(collection.ToString());
                 return RedirectToAction(nameof(Index));
             }
