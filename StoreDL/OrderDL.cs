@@ -133,7 +133,7 @@ namespace StoreDL
 
         }
 
-        public void updateStock(int pid, int qty){
+        public void UpdateStock(int pid, int qty){
            // Model.Product nwp=new Model.Product();
             Model.Product oldP= _context.Products.Find(pid);
             int newstock=oldP.AvailableStock-qty;

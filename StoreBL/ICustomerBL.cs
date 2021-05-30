@@ -12,8 +12,8 @@ namespace StoreBL
       Customer FindCustomerById(int customer_id);
       Customer DeleteCustomer(Customer customer);
 
- 
-         void ViewOrderHistoryByCustomer(Customer customer);
+
+        List<Order> ViewOrderHistoryByCustomer(int customer);
 
          
     }

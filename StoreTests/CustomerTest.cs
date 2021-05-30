@@ -34,6 +34,10 @@ namespace StoreTests
         [Theory]
         [InlineData("56 California")]
         [InlineData("1007 Smyrna GA")]
+        [InlineData("0000 TX GA")]
+        [InlineData("1 CA")]
+        [InlineData("107 Small ville GA")]
+        [InlineData("007 VA")]
 
         public void AddressShouldSetvalideData(string input){
             Assert.True(AddressStartingPoint(input));

@@ -28,8 +28,8 @@ namespace StoreBL
              }
 
 
-       public  List<Order> ViewLocationOrders(string locationName){
-            return _locationDL.ViewLocationOrders(locationName);
+       public  List<Order> ViewLocationOrders(int locationid){
+            return _locationDL.ViewLocationOrders(locationid);
         }
 
         public void ViewLocationInventory(string name){

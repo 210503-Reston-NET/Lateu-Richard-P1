@@ -14,7 +14,7 @@ namespace StoreDL
        Customer GetCustomerByName(string name);
 
        Customer DeleteCustomer(Customer customer);
-       
-       void ViewOrderHistoryByCustomer(Customer c);
+
+        List<Order> ViewOrderHistoryByCustomer(int  c);
     }
 }

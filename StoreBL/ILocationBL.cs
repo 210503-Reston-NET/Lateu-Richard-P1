@@ -4,12 +4,12 @@ namespace StoreBL
 {
     public interface ILocationBL
     {
-    public void ViewLocationInventory(string name); 
+     void ViewLocationInventory(string name); 
    Location AddLocation(Location location);
       List<Location> GetAllLocations();
 
         Location FindLocationByName(string locationName);
 
-         List<Order> ViewLocationOrders(string name); 
+         List<Order> ViewLocationOrders(int id); 
     }
 }

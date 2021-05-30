@@ -34,8 +34,8 @@ namespace StoreBL
          return _dataAccess.DeleteCustomer(customer);
      }
 
-        public void ViewOrderHistoryByCustomer(Customer customer){
-             _dataAccess.ViewOrderHistoryByCustomer(customer);
+        public List<Order> ViewOrderHistoryByCustomer(int customerId){
+            return _dataAccess.ViewOrderHistoryByCustomer(customerId);
         }
 
         

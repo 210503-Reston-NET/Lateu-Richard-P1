@@ -21,11 +21,6 @@ namespace StoreWebUI.Controllers
             //List<Inventory> inventories = new List<Inventory>();
             List<InventoryVM> inventoriesVM = new List<InventoryVM>();
             int locationID = int.Parse(this.RouteData.Values["id"].ToString());
-
-            Console.WriteLine("-------------------------");
-
-            Console.WriteLine(locationID);
-         
            
             if (locationID != 0)
             {

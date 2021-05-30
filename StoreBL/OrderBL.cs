@@ -87,7 +87,7 @@ namespace StoreBL
                 //Console.WriteLine(item.ToString());
                 _orderDLAccess.AddItem(item);
                 _orderDLAccess.AddToInventory(inv);
-                _orderDLAccess.updateStock(item.ProductId, item.Quantity);
+                _orderDLAccess.UpdateStock(item.ProductId, item.Quantity);
             }
 
         }

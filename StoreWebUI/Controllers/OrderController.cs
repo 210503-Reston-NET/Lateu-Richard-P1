@@ -26,6 +26,33 @@ namespace StoreWebUI.Controllers
             return View(_orderBL.FindAllOrders().Select(order => new OrderVM(order)).ToList());
         }
 
+        /// <summary>
+        ///  return order for customer with given id
+        /// </summary>
+        /// <param name="cutomerID"></param>
+        /// <returns></returns>
+        public ActionResult CustomerOrders( )
+
+        {
+            int cutomerID = int.Parse(this.RouteData.Values["id"].ToString());
+            List<OrderVM> orders = _customerBL.ViewOrderHistoryByCustomer(cutomerID).Select(order => new OrderVM(order)).ToList();
+            System.Diagnostics.Debug.WriteLine("===============================");
+            System.Diagnostics.Debug.WriteLine(orders.Count);
+            return View(orders);
+        }
+
+        public ActionResult LocationOrders()
+
+        {
+            int LocationID = int.Parse(this.RouteData.Values["id"].ToString());
+            List<OrderVM> orders = _locationBL.ViewLocationOrders(LocationID).Select(order => new OrderVM(order)).ToList();
+            System.Diagnostics.Debug.WriteLine("============LocationOrders===================");
+            System.Diagnostics.Debug.WriteLine(orders.Count);
+            System.Diagnostics.Debug.WriteLine(LocationID.ToString());
+            return View(orders);
+
+        }
+
         // GET: OrderController/Details/5
         public ActionResult Details(int id)
         {

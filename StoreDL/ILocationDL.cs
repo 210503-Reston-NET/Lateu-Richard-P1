@@ -8,7 +8,7 @@ namespace StoreDL
            List<Location> GetAllLocations();
            Location FindLocationByName(string locationName);
 
-           List<Order> ViewLocationOrders(string name); 
+            List<Order> ViewLocationOrders(int id); 
          //  List<Item> ViewLocationInventory(string name); 
     }
 }

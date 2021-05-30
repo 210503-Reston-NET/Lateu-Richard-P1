@@ -15,7 +15,7 @@ namespace StoreDL
         Order FindOrderById(int id);
         Inventory AddToInventory(Inventory nv);
 
-        void updateStock(int pid, int qty);
+        void UpdateStock(int pid, int qty);
 
          List<Order> FindAllOrders();
 

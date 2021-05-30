@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 namespace StoreModels
 {
     /// <summary>
@@ -21,6 +22,8 @@ namespace StoreModels
         {
             this.Id = id;
         }
+
+       public  List<Customer> Customers{get;set;}
 
 
         public override string ToString()

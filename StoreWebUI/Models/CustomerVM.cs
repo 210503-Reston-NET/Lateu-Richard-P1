@@ -14,7 +14,8 @@ namespace StoreWebUI.Models
         [Required]
         [DisplayName("Customer Name")]
         public string Name { get; set; }
-        [Required]
+        [Required(ErrorMessage = "The email address is required")]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
         public string Email { get; set; }
         [Required]
         public string Phone { get; set; }

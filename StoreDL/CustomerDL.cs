@@ -66,9 +66,13 @@ namespace StoreDL
         }
 
 
-        public void ViewOrderHistoryByCustomer(Model.Customer customer)
+        public List<Model.Order> ViewOrderHistoryByCustomer(int customerId)
         {
-            throw new System.Exception("ViewOrderHistoryByCustomer yet implemented in DL");
+            return _context.Orders.Where(
+                   order => order.CustomerId == customerId
+               ).Select(
+                   order => order
+               ).ToList();
         }
 
     }

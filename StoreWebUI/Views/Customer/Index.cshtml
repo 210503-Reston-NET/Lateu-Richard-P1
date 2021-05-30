@@ -4,15 +4,15 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Customers</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Add New</a>
 </p>
 <table class="table">
     <thead>
         <tr>
-            <th>
+            <th hidden>
                 @Html.DisplayNameFor(model => model.Id)
             </th>
             <th>
@@ -30,7 +30,7 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
+            <td hidden>
                 @Html.DisplayFor(modelItem => item.Id)
             </td>
             <td>
@@ -46,7 +46,7 @@
                 @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                @Html.ActionLink("Orders", "Index","Order", new { CustomerId = item.Id })
+                @Html.ActionLink("Orders", "CustomerOrders", "Order", new { id = item.Id })
 
                 <a asp-action="Edit" asp-rout-id="@item.Id" class="btn btn-primary">Update</a>
                 <input type="button" value="Create" onclick="location.href='@Url.Action("Create", "Location")'" />

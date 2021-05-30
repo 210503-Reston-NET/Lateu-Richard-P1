@@ -48,33 +48,27 @@ namespace StoreDL
 
         }
 
-        public List<Model.Order> ViewLocationOrders(string locationName)
+
+
+        public List<Model.Order> ViewLocationOrders(int  locationId)
         {
 
             return _context.Orders.Where(
-          order => order.LocationId == FindLocationByName(locationName).Id
+          order => order.LocationId == locationId
           ).Select(
               order => new Model.Order
               {
-                        /*  CustomerId = order.CustomerId,       
-                          StoreId=order.StoreId,
+                         CustomerId = order.CustomerId,       
+                          LocationId=order.LocationId,
                           OrderDate=order.OrderDate,
-                          OrderTotal = order.OrderTotal,*/
+                          OrderTotal = order.OrderTotal,
 
               }
           ).ToList();
         }
 
-        /* public  List<Model.Item>  ViewLocationInventory(string name){
-          return _context.Items.Where(
-            item => item.RestaurantId == GetRestaurant(restaurant).Id
-            ).Select(
-                review => new Model.Review
-                {
-                    Rating = review.Rating,
-                    Description = review.Description
-                }
-            ).ToList();
-         }*/
+
+
+       
     }
 }
