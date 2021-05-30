@@ -20,6 +20,13 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
+- task: DotNetCoreCLI@2
+  displayName: Test
+  inputs:
+    command: 'test'
+    projects: '''**/Lateu-Richard-P1/StoreTests/*.csproj'''
+    arguments: '--configuration $(buildConfiguration)'
+
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
@@ -32,10 +39,6 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: DotNetCoreCLI@2
-  displayName: Test
-  inputs:
-    command: 'test'
-    projects: '''**/Lateu-Richard-P1/StoreTests/*.csproj'''
+
     
 
