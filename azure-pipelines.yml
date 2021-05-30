@@ -6,7 +6,7 @@
 trigger:
 - main
 
-pool: 'Default'
+pool: 'tireshopagent'
   
 variables:
   solution: '**/*.sln'
