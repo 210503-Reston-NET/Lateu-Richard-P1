@@ -39,13 +39,3 @@ steps:
     projects: '''**/Lateu-Richard-P1/StoreTests/*.csproj'''
     
 
-- task: SonarCloudPrepare@1
-  inputs:
-    SonarCloud: 'sonarConnexion'
-    organization: '210503-reston-net'
-    scannerMode: 'MSBuild'
-    projectKey: '210503-Reston-NET_Lateu-Richard-P1'
-- task: SonarCloudAnalyze@1
-- task: SonarCloudPublish@1
-  inputs:
-    pollingTimeoutSec: '300'
