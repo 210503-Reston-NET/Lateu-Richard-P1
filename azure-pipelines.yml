@@ -24,7 +24,7 @@ steps:
   displayName: Test
   inputs:
     command: 'test'
-    projects: '''**/Lateu-Richard-P1/StoreTests/*.csproj'''
+    projects: '''**/StoreTests/*.csproj'''
     arguments: '--configuration $(buildConfiguration)'
 
 - task: VSBuild@1
