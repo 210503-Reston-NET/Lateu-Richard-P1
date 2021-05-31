@@ -7,7 +7,7 @@ namespace StoreTests
 {
     public class CustomerTest
     {
-        public bool AddressStartingPoint(string address){
+        public static bool AddressStartingPoint(string address){
             if ((address!=null) && (!address.Equals("")))
             {
                 string temp = address.Substring(0, 2);

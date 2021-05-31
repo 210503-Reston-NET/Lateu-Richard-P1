@@ -18,7 +18,7 @@
 
                 <div class="form-group row ">
                     <label>Product:</label>
-                    @Html.DropDownListFor(m => m.ProductId, Model.products.Select(d => new SelectListItem() { Value = d.Id.ToString(), Text = d.Name }))
+                    @Html.DropDownListFor(m => m.ProductId, Model.Products.Select(d => new SelectListItem() { Value = d.Id.ToString(), Text = d.Name }))
 
                 </div>
                 <br />

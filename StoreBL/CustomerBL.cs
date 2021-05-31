@@ -7,13 +7,16 @@ namespace StoreBL
     public class CustomerBL:ICustomerBL
     {
         private ICustomerDL _dataAccess;
+        private ILocationDL  _locationDL;
         //public CustomerBL(){}
-        public CustomerBL(ICustomerDL iCustomerDL )
+        public CustomerBL(ICustomerDL iCustomerDL,ILocationDL ldl )
         {
             this._dataAccess=iCustomerDL;
+            this._locationDL=ldl;
         }
 
         public Customer AddCustomer(Customer c){
+                    c.LocationId=_locationDL.GetAllLocations()[0].Id;
                    _dataAccess.AddCustomer(c);
              return c;
          }

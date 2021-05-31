@@ -70,8 +70,8 @@ namespace StoreWebUI.Controllers
             var model =new  OrderVM();
             ViewData.Add("orderID", orderID);
             model.Locations = _locationBL.GetAllLocations().ToList();
-            model.customers = _customerBL.GetAllCustomers().ToList();
-            model.products = _productBL.GetAllProducts().ToList();
+            model.Customers = _customerBL.GetAllCustomers().ToList();
+            model.Products = _productBL.GetAllProducts().ToList();
 
             return View(model);
         }

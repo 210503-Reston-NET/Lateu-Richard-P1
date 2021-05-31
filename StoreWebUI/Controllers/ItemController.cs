@@ -47,7 +47,7 @@ namespace StoreWebUI.Controllers
         {
             var model = new ItemVM();
             model.OrderId = id;
-            model.products = _productBL.GetAllProducts().ToList();
+            model.Products = _productBL.GetAllProducts().ToList();
             //List<Product> products =_productBL.GetAllProducts().ToList();
 
             return View(model);

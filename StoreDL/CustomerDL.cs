@@ -26,6 +26,7 @@ namespace StoreDL
                        Email = customer.Email,
                        Phone = customer.Phone,
                        Address = customer.Address,
+                       LocationId=customer.LocationId,
                    }
                );
 

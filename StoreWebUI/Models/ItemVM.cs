@@ -8,15 +8,15 @@ namespace StoreWebUI.Models
     public class ItemVM
     {
         public int  Id{ get; set; }
-    public double UnitPrice { get; set; }
+        public double UnitPrice { get; set; }
         public int ProductId { get; set; }
         public int Quantity { get; set; }
 
         public int OrderId { get; set; }
 
         public ItemVM() { }
-        public ItemVM(int orderid, List<Product> l) { this.OrderId = orderid; }
-        public IEnumerable<Product> products { set; get; }
+        public ItemVM(int orderid, List<Product> l) { this.OrderId = orderid;this.Products = l; }
+        public IEnumerable<Product> Products { set; get; }
 
         public ItemVM(Item item) {
             this.Id = item.Id;

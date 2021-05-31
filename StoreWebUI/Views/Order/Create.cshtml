@@ -16,7 +16,7 @@
             <div class="form-group col-md-4">
 
                 <span>Customer:</span>
-                @Html.DropDownListFor(m => m.CustomerId, Model.customers.Select(e => new SelectListItem() { Value = e.Id.ToString(), Text = e.Name }))
+                @Html.DropDownListFor(m => m.CustomerId, Model.Customers.Select(e => new SelectListItem() { Value = e.Id.ToString(), Text = e.Name }))
 
             </div>
 
@@ -37,7 +37,7 @@
 
                 <div class="form-group">
                     <span>Product:</span>
-                    @Html.DropDownListFor(m => m.ProductId1, Model.products.Select(d => new SelectListItem() { Value = d.Id.ToString(), Text = d.Name }))
+                    @Html.DropDownListFor(m => m.ProductId1, Model.Products.Select(d => new SelectListItem() { Value = d.Id.ToString(), Text = d.Name }))
                     <br />
                     <label asp-for="Qty1" class="control-label">Quantity</label>
                     <input asp-for="Qty1" class="form-control" />
@@ -50,7 +50,7 @@
 
                 <div class="form-group">
                     <span>Product:</span>
-                    @Html.DropDownListFor(m => m.ProductId2, Model.products.Select(d => new SelectListItem() { Value = d.Id.ToString(), Text = d.Name }))
+                    @Html.DropDownListFor(m => m.ProductId2, Model.Products.Select(d => new SelectListItem() { Value = d.Id.ToString(), Text = d.Name }))
                     <br />
                     <label asp-for="Qty2" class="control-label">Quantity</label>
                     <input asp-for="Qty2" class="form-control" />

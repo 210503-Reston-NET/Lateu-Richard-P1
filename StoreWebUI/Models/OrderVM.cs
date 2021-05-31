@@ -29,9 +29,9 @@ namespace StoreWebUI.Models
             this.LocationId = order.LocationId;
             this.OrderTotal = order.OrderTotal;
         }
-        public IEnumerable<Customer> customers { set; get; }
+        public IEnumerable<Customer> Customers { set; get; }
         public IEnumerable<Location> Locations { set; get; }
-        public IEnumerable<Product> products { set; get; }
+        public IEnumerable<Product> Products { set; get; }
         public List<Item> Items { get; set; }
 
         public override string ToString()

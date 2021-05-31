@@ -24,7 +24,7 @@ namespace StoreModels
             }
         }
         public string Address { get; set; }
-
+        public int LocationId { get; set; }
         public Customer() { }
 
         public Customer(string name, string email, string phone, string address)
