@@ -24,20 +24,20 @@ namespace StoreTests
             _driver.Dispose();
         }
         
-            /*    [Fact]
+                [Fact]
                 public void Create_WhenExecuted_ReturnsCreateView()
                 {
-                    //_driver.Navigate().GoToUrl("https://projectp1.azurewebsites.net/Location/Create");
-            _driver.Navigate().GoToUrl("https://localhost:44391/Location/Create");
+                    _driver.Navigate().GoToUrl("https://projectp1.azurewebsites.net/Location/Create");
+            //_driver.Navigate().GoToUrl("https://localhost:44391/Location/Create");
 
             Assert.Equal("Create Location - Tire Shop", _driver.Title);
          
                 }
-      /*  [Fact]
+        [Fact]
         public void LocationCreatedSuccessfully_ShouldAppearOnIndexViewOfLocation()
         {
-            //_driver.Navigate().GoToUrl("https://projectp1.azurewebsites.net/Location/Create");
-            _driver.Navigate().GoToUrl("https://localhost:44391/Location/Create");
+            _driver.Navigate().GoToUrl("https://projectp1.azurewebsites.net/Location/Create");
+            //.Navigate().GoToUrl("https://localhost:44391/Location/Create");
 
             _driver.FindElement(By.Id("Name"))
                 .SendKeys("St Valencia ");
@@ -52,6 +52,6 @@ namespace StoreTests
             Assert.Contains("St Valencia", _driver.PageSource);
             Assert.Contains("34", _driver.PageSource);
          
-        }*/
+        }
     }
 }
