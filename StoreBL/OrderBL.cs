@@ -19,6 +19,7 @@ namespace StoreBL
 
         public Order AddOrder(Order order)
         {
+            order.Status="Draft";
             return _orderDLAccess.AddOrder(order);
         }
         public Item AddItem(Item item)

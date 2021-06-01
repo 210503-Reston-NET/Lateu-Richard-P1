@@ -14,24 +14,26 @@ namespace StoreModels
         public DateTime OrderDate { get; set; }
         public double OrderTotal { get; set; }
         public string Name { get; set; }
-        public string status { get; set; }
+        public string Status { get; set; }
 
         public List<Item> Items { get; set; }
         public Order() { }
-        public Order(int customer_id, int location_id, DateTime orderDate, double orderTotal, string name) {
+        public Order(int customer_id, int location_id, DateTime orderDate, double orderTotal, string name,string st) {
             this.CustomerId = customer_id;
             this.LocationId = location_id;
             this.OrderDate = orderDate;
             this.OrderTotal = orderTotal;
             this.Name = name;
+            this.Status=st;
         }
 
-        public Order(int Id, int customer_id, int location_id, DateTime orderDate, double orderTotal, string name) : this(customer_id, location_id, orderDate, orderTotal, name) {
+        public Order(int Id, int customer_id, int location_id, DateTime orderDate, double orderTotal, string name,string status) : this(customer_id, location_id, orderDate, orderTotal, name,status) {
             this.CustomerId = customer_id;
             this.LocationId = location_id;
             this.OrderDate = orderDate;
             this.OrderTotal = orderTotal;
             this.Name = name;
+            this.Status=status;
             this.Id = Id;
 
         }

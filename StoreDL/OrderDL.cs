@@ -21,7 +21,7 @@ namespace StoreDL
         {
             Model.Order response = _context.Orders.FirstOrDefault(order => order.Name == orderName);
             if (response == null) return null;
-            return new Model.Order(response.Id, response.CustomerId, response.LocationId, response.OrderDate, response.OrderTotal, response.Name);
+            return new Model.Order(response.Id, response.CustomerId, response.LocationId, response.OrderDate, response.OrderTotal, response.Name,response.Status);
 
         }
 
@@ -88,6 +88,7 @@ namespace StoreDL
                                CustomerId = order.CustomerId,
                                LocationId = order.LocationId,
                                Name = order.Name,
+                               Status=order.Status,
 
 
 
@@ -153,7 +154,7 @@ namespace StoreDL
 
         public List<Order> FindAllOrders()
         {
-         return  _context.Orders.Include("Customer").Select(
+         return  _context.Orders.Select(
                order=>order).ToList();
         }
 

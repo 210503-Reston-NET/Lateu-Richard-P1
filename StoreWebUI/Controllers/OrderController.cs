@@ -85,21 +85,21 @@ namespace StoreWebUI.Controllers
             {
                 List<Item> Items = new List<Item>();
                 Item item1 = new Item();
-                Item item2 = new Item();
+                //Item item2 = new Item();
                 double total = 0;
                 item1.ProductId = collection.ProductId1;
                 item1.Quantity = collection.Qty1;
                 item1.UnitPrice = collection.Price1;
                 total+= collection.Price1 * collection.Qty1; ;
 
-                item2.ProductId = collection.ProductId2;
+              /*  item2.ProductId = collection.ProductId2;
                 item2.Quantity = collection.Qty2;
                 item2.UnitPrice = collection.Price2;
                 total += collection.Price2* collection.Qty2;
-               
+               */
 
                 Items.Add(item1);
-                Items.Add(item2);
+                //Items.Add(item2);
                          
                 //Items.Add(_productBL.)
                 _orderBL.PlaceOrder(collection.Name,total,collection.CustomerId, collection.LocationId, Items);
