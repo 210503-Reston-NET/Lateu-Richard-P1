@@ -4,18 +4,20 @@
     ViewData["Title"] = "Index";
 }
 
-<h4>OrderId: @ViewData["OrderId"]</h4>
-<h4>Total($): @ViewData["Total"]</h4>
+<h5>OrderId: @ViewData["OrderId"]</h5>
+<h5>Total($): @ViewData["Total"]</h5>
+<h5>Status: @ViewData["Status"]</h5>
      
              
 
-<h6 class="text-danger">Order  lines</h6>
+
 
 
 
 <p>
-    @Html.ActionLink("Add New Item", "Create", new { id = ViewBag.order.Id })
+    @Html.ActionLink("Add Item", "Create", new { id = ViewBag.order.Id })
 </p>
+<h6 class="text-danger">Order  lines</h6>
 
 <table class="table">
     <thead>

@@ -22,11 +22,14 @@ namespace StoreWebUI.Controllers
             ViewBag.order = o;
             if (o != null){
                     ViewData.Add("OrderId", o.Name);
+                    ViewData.Add("Status", o.Status);
                     ViewData.Add("Total", o.OrderTotal.ToString());
+                
             }
               else
                {
                 ViewData.Add("OrderId", "");
+                ViewData.Add("Status ", "");
                 ViewData.Add("Total($) ", 0);
             }
 

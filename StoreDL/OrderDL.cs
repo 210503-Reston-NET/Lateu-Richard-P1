@@ -37,6 +37,7 @@ namespace StoreDL
                         ProductId = item.ProductId,
                         Quantity = item.Quantity,
                         UnitPrice = item.UnitPrice,
+                        
 
                     }
                 ).ToList();
@@ -88,7 +89,7 @@ namespace StoreDL
                                CustomerId = order.CustomerId,
                                LocationId = order.LocationId,
                                Name = order.Name,
-                               Status=order.Status,
+                               Status="Draft",
 
 
 
