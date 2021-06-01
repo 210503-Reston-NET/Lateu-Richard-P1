@@ -6,7 +6,7 @@
 trigger:
 - main
 
-pool: 'windows-latest'
+pool: 'tireshopagent'
   
 variables:
   solution: '**/*.sln'
@@ -32,20 +32,6 @@ steps:
   inputs:
     command: 'test'
     projects: '**/StoreTests/*.csproj'
-    arguments: --configuration $(buildConfiguration) --colect "Code Coverage"
-- task: PublishCodeCoverageResults@1
-  inputs:
-    codeCoverageTool: 'Cobertura'
-    summaryFileLocation: '**/corbertura/coverage.xml'
-- task: SonarCloudAnalyze@1
-  displayName: run code Analysis
-- task: SonarCloudPublish@1
-  displayName: Publish code Analysis
-  inputs:
-    pollingTimeoutSec: '300'
-- task: SonarCloudPublish@1
-  inputs:
-    pollingTimeoutSec: '300'
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
