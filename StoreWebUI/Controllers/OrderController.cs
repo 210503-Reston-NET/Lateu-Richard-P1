@@ -6,6 +6,7 @@ using StoreWebUI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Serilog;
 using System.Threading.Tasks;
 
 namespace StoreWebUI.Controllers
@@ -81,6 +82,10 @@ namespace StoreWebUI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(OrderVM collection)
         {
+            Log.Logger = new LoggerConfiguration()
+            .MinimumLevel.Verbose()
+            .WriteTo.File("logs/tirestore.log", rollingInterval: RollingInterval.Day)
+            .CreateLogger();
             try
             {
                 List<Item> Items = new List<Item>();
@@ -90,21 +95,15 @@ namespace StoreWebUI.Controllers
                 item1.ProductId = collection.ProductId1;
                 item1.Quantity = collection.Qty1;
                 item1.UnitPrice = collection.Price1;
-                total+= collection.Price1 * collection.Qty1; ;
-
-              /*  item2.ProductId = collection.ProductId2;
-                item2.Quantity = collection.Qty2;
-                item2.UnitPrice = collection.Price2;
-                total += collection.Price2* collection.Qty2;
-               */
+                total+= collection.Price1 * collection.Qty1;
 
                 Items.Add(item1);
                 //Items.Add(item2);
                          
                 //Items.Add(_productBL.)
                 _orderBL.PlaceOrder(collection.Name,total,collection.CustomerId, collection.LocationId, Items);
-
-                System.Diagnostics.Debug.WriteLine(collection.ToString());
+                Log.Information("New order created with id: {a} and amount {b}", collection.Name, total);
+                //System.Diagnostics.Debug.WriteLine(collection.ToString());
                 return RedirectToAction(nameof(Index));
             }
             catch

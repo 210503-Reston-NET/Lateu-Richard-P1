@@ -49,7 +49,6 @@ namespace StoreModels
 
         public override string ToString()
         {
-            //  return base.ToString();
             return $" Name: {Name} \t Email: {Email} \t Phone: {Phone} \t Address:{Address} \n";
         }
 

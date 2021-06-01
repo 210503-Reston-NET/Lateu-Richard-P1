@@ -48,9 +48,6 @@
                 @Html.ActionLink("Delete", "Delete", new { id = item.Id })
                 @Html.ActionLink("Orders", "CustomerOrders", "Order", new { id = item.Id })
 
-                <a asp-action="Edit" asp-rout-id="@item.Id" class="btn btn-primary">Update</a>
-                <input type="button" value="Create" onclick="location.href='@Url.Action("Create", "Location")'" />
-
             </td>
         </tr>
 }
