@@ -6,7 +6,7 @@
 trigger:
 - main
 
-pool: 'tireshopagent'
+pool: 'windows-latest'
   
 variables:
   solution: '**/*.sln'
