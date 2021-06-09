@@ -7,8 +7,8 @@ The Tire store is a software that helps customers purchase any tire and get deli
 
 # Functionality:
 
-Add a new customer
-Search customers by name
+1. Add a new customer
+2. Search customers by name
 Display details of an order
 Place orders to store locations for customers
 View order history of customer
