@@ -34,11 +34,11 @@ The Tire store is a software that helps customers purchase any tire and get deli
 
 # Tech Stack:
 
-1 C#
-2 PostgreSQL DB
-3 EF Core 
-4 Xunit
-5 Serilog or Nlog
-6 Azure DevOps
-7 Azure App Services
-8 ASP.NET MVC
+1. C#
+2. PostgreSQL DB
+3. EF Core 
+4. Xunit
+5. Serilog or Nlog
+6. Azure DevOps
+7. Azure App Services
+8. ASP.NET MVC
