@@ -25,21 +25,20 @@ The Tire store is a software that helps customers purchase any tire and get deli
 5. User
 
 # Additional features:
- .Exception Handling
- .Input validation
- .Logging 
- .Using Moq,Xunit and Sqlite for unit testing
- .Using Selenium for integration test
+ 1. Exception Handling
+ 2. Input validation
+ 3. Logging 
+ 4. Using Moq,Xunit and Sqlite for unit testing
+ 5. Using Selenium for integration test
 
 
 # Tech Stack:
 
-C#
-PostgreSQL DB
-EF Core
-Xunit
-Serilog or Nlog
-Azure
-Azure 
-Azure App Services
-ASP.NET MVC
+1 C#
+2 PostgreSQL DB
+3 EF Core 
+4 Xunit
+5 Serilog or Nlog
+6 Azure DevOps
+7 Azure App Services
+8 ASP.NET MVC
