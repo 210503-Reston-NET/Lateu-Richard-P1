@@ -15,6 +15,8 @@ The Tire store is a software that helps customers purchase any tire and get deli
 6. View location inventory
 7. The customer is be able to purchase multiple products
 
+# To-do list:
+1. Add Identity for authentification
 
 # Models:
 
