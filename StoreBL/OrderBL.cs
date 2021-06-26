@@ -22,7 +22,7 @@ namespace StoreBL
             order.Status="Draft";
             return _orderDLAccess.AddOrder(order);
         }
-        public Item AddItem(Item item)
+        public OrderItem AddItem(OrderItem item)
         {
             return _orderDLAccess.AddItem(item);
         }
@@ -32,7 +32,7 @@ namespace StoreBL
             return _orderDLAccess.FindOrderByName(orderName);
         }
 
-        public List<Item> DisplayOrderDetails(int order_id)
+        public List<OrderItem> DisplayOrderDetails(int order_id)
         {
 
             return _orderDLAccess.DisplayOrderDetails(order_id);
@@ -62,7 +62,7 @@ namespace StoreBL
             return temp.Substring(0, 17).Replace("/", "").Replace(":", "").Replace(" ", "");
         }*/
 
-        public void PlaceOrder(string orderName, double orderTotal, int customerId, int  locationId, List<Item> items)
+        public void PlaceOrder(string orderName, double orderTotal, int customerId, int  locationId, List<OrderItem> items)
         {
             Order order = new Order();
             order.OrderDate = DateTime.Now;
@@ -78,7 +78,7 @@ namespace StoreBL
             inv.Inventorytype = "OUT";
             inv.OrderDate = order.OrderDate;
 
-            foreach (Item item in items)
+            foreach (OrderItem item in items)
             {
                 item.OrderId = newOrder.Id;
                 inv.ProductId = item.ProductId;

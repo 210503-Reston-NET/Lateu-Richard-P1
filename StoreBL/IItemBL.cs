@@ -9,8 +9,8 @@ namespace StoreBL
 {
     public interface IItemBL
     {
-        Item FindItemById(int id);
-        Item AddItem(Item e);
+        OrderItem FindItemById(int id);
+        OrderItem AddItem(OrderItem e);
 
 
     }

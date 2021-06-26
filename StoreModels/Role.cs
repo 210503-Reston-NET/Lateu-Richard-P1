@@ -1,16 +1,14 @@
-﻿using StoreModels;
+﻿using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StoreDL
+namespace StoreModels
 {
-   public interface IItemDL
+   public  class Role: IdentityRole<int>
     {
-       Item FindItemById(int id);
-
-        Item AddItem(Item e);
+      
     }
 }

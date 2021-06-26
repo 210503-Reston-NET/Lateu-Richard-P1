@@ -7,7 +7,7 @@ namespace StoreBL
     {
 
         Order FindOrderByName(string orderName);
-        List<Item> DisplayOrderDetails(int order_id);
+        List<OrderItem> DisplayOrderDetails(int order_id);
         List<Order> FindAllOrders();
 
         List<Order> ViewOrderHistoryByLocation(string locationName);
@@ -15,9 +15,9 @@ namespace StoreBL
          List<Order> ViewOrderHistoryByCustomer(string  customerName);
 
          Order AddOrder(Order order);
-         Item AddItem(Item item);
+         OrderItem AddItem(OrderItem item);
 
-        void PlaceOrder(string orderName, double orderTotal, int customerID,int location, List<Item> items);
+        void PlaceOrder(string orderName, double orderTotal, int customerID,int location, List<OrderItem> items);
 
         Order FindOrderById(int id);
     }

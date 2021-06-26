@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 
 namespace StoreWebUI.Controllers
 {
-    public class ItemController : Controller
+    public class OrderItemController : Controller
     {
         // GET: ItemController
         private IOrderBL _orderBL;
         private IProductBL _productBL;
-        public ItemController(IOrderBL e, IProductBL x) { this._orderBL = e;this._productBL = x; }
+        public OrderItemController(IOrderBL e, IProductBL x) { this._orderBL = e;this._productBL = x; }
         public ActionResult Index(int id)
         {
             Order o = _orderBL.FindOrderById(id);
@@ -34,7 +34,7 @@ namespace StoreWebUI.Controllers
             }
 
 
-            List<Item> items = _orderBL.DisplayOrderDetails(id);
+            List<OrderItem> items = _orderBL.DisplayOrderDetails(id);
             return View(items.Select(
                 item=>new ItemVM(item)));
         }
@@ -65,7 +65,7 @@ namespace StoreWebUI.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    _orderBL.AddItem(new Item(itemVM.OrderId, itemVM.ProductId, itemVM.Quantity, itemVM.UnitPrice));
+                    _orderBL.AddItem(new OrderItem(itemVM.OrderId, itemVM.ProductId, itemVM.Quantity, itemVM.UnitPrice));
                     return RedirectToAction(nameof(Index), new { id = itemVM.OrderId });
                 }
                 return View();

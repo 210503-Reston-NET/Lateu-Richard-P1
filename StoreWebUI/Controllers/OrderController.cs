@@ -88,8 +88,8 @@ namespace StoreWebUI.Controllers
             .CreateLogger();
             try
             {
-                List<Item> Items = new List<Item>();
-                Item item1 = new Item();
+                List<OrderItem> Items = new List<OrderItem>();
+                OrderItem item1 = new OrderItem();
                 //Item item2 = new Item();
                 double total = 0;
                 item1.ProductId = collection.ProductId1;

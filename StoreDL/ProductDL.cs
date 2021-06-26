@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using StoreModels;
+using Serilog;
 
 namespace StoreDL
 {
     public class ProductDL : IProductDL
     {
-        private StoreDBContext _context;
+        private readonly StoreDBContext _context;
         public ProductDL()
         {
         }
@@ -21,11 +22,15 @@ namespace StoreDL
 
         public Model.Product AddProduct(Model.Product product)
         {
+            Log.Information("Adding new product {0}", product.ToString());
             _context.Products.Add(
              product
           );
 
             _context.SaveChanges();
+            _context.Entry(product).GetDatabaseValues();
+            Log.Information("product detais after saving {0}", product.ToString());
+            _context.ChangeTracker.Clear();
             return product;
         }
 

@@ -28,7 +28,7 @@ namespace StoreTests
         {
             //Arrange
             int price=20;
-            Item item=new Item();      
+            OrderItem item=new Item();      
 
             //Act
             item.UnitPrice=price;           
@@ -46,7 +46,7 @@ namespace StoreTests
            
             Product p1=new Product();
             Inventory inventory=new Inventory();           
-            Item item=new Item();      
+            OrderItem item=new Item();      
 
             //Act
             int quantityOrder=20000;

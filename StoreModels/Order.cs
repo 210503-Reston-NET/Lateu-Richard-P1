@@ -15,8 +15,7 @@ namespace StoreModels
         public double OrderTotal { get; set; }
         public string Name { get; set; }
         public string Status { get; set; }
-
-        public List<Item> Items { get; set; }
+        public virtual List<OrderItem> OrderItems { get; set; }
         public Order() { }
         public Order(int customer_id, int location_id, DateTime orderDate, double orderTotal, string name,string st) {
             this.CustomerId = customer_id;
@@ -42,7 +41,7 @@ namespace StoreModels
           public override string ToString()
         {
           //  return base.ToString();
-             return $" Name {Name}\t Customer ID: {CustomerId} \t Location ID: {LocationId}\t Date {OrderDate} \t Items: {Items}\n";
+             return $" Name {Name}\t Customer ID: {CustomerId} \t Location ID: {LocationId}\t Date {OrderDate} \t Items: {OrderItems}\n";
         }
     
        

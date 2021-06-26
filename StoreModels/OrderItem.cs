@@ -1,17 +1,18 @@
 namespace StoreModels
 {
     /// <summary>
-    /// This data structure models a product and its quantity. The quantity was separated from the product as it could vary from orders and locations.  
+    /// 
     /// </summary>
-    public class Item
+    public class OrderItem
     {
         public int Id { get; set; }
         public double UnitPrice { get; set; }
         public int OrderId { get; set; }
         public int ProductId { get; set; }
+        public string ProductName { get; set; }
         public int Quantity { get; set; }
-        public Item() { }
-        public Item(int orderId, int productId, int qty, double unitPrice)
+        public OrderItem() { }
+        public OrderItem(int orderId, int productId, int qty, double unitPrice)
         {
             this.OrderId = orderId;
             this.ProductId = productId;

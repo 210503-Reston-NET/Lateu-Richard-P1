@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 
 namespace StoreDL
 {
-    public class ItemDL : IItemDL
+    public class ItemDL : OrderItemDL
     {
         private StoreDBContext _context;
 
         public ItemDL(StoreDBContext e) { this._context = e; }
-        public Item AddItem(Item e)
+        public OrderItem AddItem(OrderItem e)
         {
             _context.Items.Add(e);
             return e;
         }
 
-        public Item FindItemById(int id)
+        public OrderItem FindItemById(int id)
         {
           return _context.Items.Find(id);
         }

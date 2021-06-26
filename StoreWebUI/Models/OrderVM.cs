@@ -33,7 +33,7 @@ namespace StoreWebUI.Models
         public IEnumerable<Customer> Customers { set; get; }
         public IEnumerable<Location> Locations { set; get; }
         public IEnumerable<Product> Products { set; get; }
-        public List<Item> Items { get; set; }
+        public List<OrderItem> Items { get; set; }
 
         public override string ToString()
         {

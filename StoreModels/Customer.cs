@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace StoreModels
 {
@@ -9,6 +10,8 @@ namespace StoreModels
     {
         private string PhoneNumber;
         public int Id { get; set; }
+
+        [MaxLength(200)]
         public string Name { get; set; }
         public string Email { get; set; }
         public string Phone

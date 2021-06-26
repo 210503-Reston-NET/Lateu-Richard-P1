@@ -11,6 +11,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using StoreDL;
 using StoreBL;
+using Microsoft.AspNetCore.Identity;
+using StoreModels;
+
 namespace StoreWebUI
 {
     public class Startup
@@ -26,6 +29,7 @@ namespace StoreWebUI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddRazorPages();
             services.AddDbContext<StoreDBContext>(options=>options.UseNpgsql(Configuration.GetConnectionString("StoreDB")));
             services.AddScoped<ICustomerDL, CustomerDL>();
             services.AddScoped<ICustomerBL, CustomerBL>();
@@ -45,7 +49,14 @@ namespace StoreWebUI
             services.AddScoped<IInventoryDL, InventoryDL>();
 
             services.AddScoped<IItemBL, ItemBL>();
-            services.AddScoped<IItemDL, ItemDL>();
+            services.AddScoped<OrderItemDL, ItemDL>();
+
+
+            services.AddIdentity<User, Role>()
+                 .AddDefaultUI()
+                 .AddDefaultTokenProviders()
+                 .AddEntityFrameworkStores<StoreDBContext>();
+            //
 
         }
 
@@ -66,7 +77,6 @@ namespace StoreWebUI
             app.UseStaticFiles();
 
             app.UseRouting();
-
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -74,6 +84,7 @@ namespace StoreWebUI
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
             });
         }
     }

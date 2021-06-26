@@ -10,15 +10,15 @@ namespace StoreBL
 {
    public  class ItemBL : IItemBL
     {
-        private IItemDL _itemDL;
+        private OrderItemDL _itemDL;
 
-        public ItemBL(IItemDL e) { this._itemDL = e; }
-        public Item AddItem(Item e)
+        public ItemBL(OrderItemDL e) { this._itemDL = e; }
+        public OrderItem AddItem(OrderItem e)
         {
             return _itemDL.AddItem(e);
         }
 
-        public Item FindItemById(int id)
+        public OrderItem FindItemById(int id)
         {
             return _itemDL.FindItemById(id);
         }

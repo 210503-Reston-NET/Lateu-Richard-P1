@@ -26,12 +26,12 @@ namespace StoreDL
         }
 
 
-        public List<Model.Item> DisplayOrderDetails(int order_id)
+        public List<Model.OrderItem> DisplayOrderDetails(int order_id)
         {
             return _context.Items.Where(
                     item => item.OrderId == order_id
                 ).Select(
-                    item => new Model.Item
+                    item => new Model.OrderItem
                     {
                         OrderId = item.OrderId,
                         ProductId = item.ProductId,
@@ -100,14 +100,14 @@ namespace StoreDL
             _context.SaveChanges();
             return order;
         }
-        public Model.Item AddItem(Model.Item item)
+        public Model.OrderItem AddItem(Model.OrderItem item)
         {
             _context.Items.Add(
-                new Model.Item
+                new Model.OrderItem
                 {
-                    UnitPrice = item.UnitPrice,
                     OrderId = item.OrderId,
                     ProductId = item.ProductId,
+                    UnitPrice = item.UnitPrice,
                     Quantity = item.Quantity,
 
                 }
@@ -148,7 +148,7 @@ namespace StoreDL
 
         }
 
-        public void PlaceOrder(Model.Customer customer, Model.Location location, List<Model.Item> items)
+        public void PlaceOrder(Model.Customer customer, Model.Location location, List<Model.OrderItem> items)
         {
 
         }
