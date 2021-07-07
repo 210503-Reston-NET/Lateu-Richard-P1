@@ -2,7 +2,7 @@ using System;
 using Microsoft.AspNetCore.Identity;
 namespace StoreModels
 {
-    public class User:IdentityUser<int>
+    public class ApplicationUser:IdentityUser
     {
         [PersonalData]
         public string FirstName{set;get;}

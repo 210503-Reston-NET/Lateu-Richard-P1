@@ -1,36 +1,43 @@
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using StoreModels;
-namespace StoreDL
-{
-    public class StoreDBContext:DbContext
-    {
-         public StoreDBContext() : base()
-        {}
-        public StoreDBContext(DbContextOptions options): base(options){
 
+namespace StoreDL
+
+{
+    public class StoreDBContext : IdentityDbContext<ApplicationUser,ApplicationRole, string>
+    {
+        public StoreDBContext(DbContextOptions<StoreDBContext> options)
+            : base(options)
+        {
         }
 
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Inventory> Inventories { get; set; }
-        public virtual DbSet<OrderItem> Items { get; set; }
+        public virtual DbSet<OrderItem> OrderItems { get; set; }
         public virtual DbSet<Location> Locations { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Product> Products { get; set; }
-        public virtual DbSet<User> Users{get;set;}
         public virtual DbSet<InventoryItem> InventoryItems { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder builder)
         {
-            modelBuilder.Entity<Customer>().Property(e => e.Id).ValueGeneratedOnAdd();
-            modelBuilder.Entity<Inventory>().Property(e => e.Id).ValueGeneratedOnAdd();
-            modelBuilder.Entity<OrderItem>().Property(e => e.Id).ValueGeneratedOnAdd();
-            modelBuilder.Entity<Location>().Property(e => e.Id).ValueGeneratedOnAdd();
-            modelBuilder.Entity<Order>().Property(e => e.Id).ValueGeneratedOnAdd();
-            modelBuilder.Entity<Product>().Property(e => e.Id).ValueGeneratedOnAdd();
-            modelBuilder.Entity<User>().Property(e => e.Id).ValueGeneratedOnAdd();
-            modelBuilder.Entity<InventoryItem>().Property(e => e.Id).ValueGeneratedOnAdd();
-
+            base.OnModelCreating(builder);
+            // Customize the ASP.NET Identity model and override the defaults if needed.
+            // For example, you can rename the ASP.NET Identity table names and more.
+            // Add your customizations after calling base.OnModelCreating(builder);
+            builder.Entity<Customer>().Property(e => e.Id).ValueGeneratedOnAdd();
+            builder.Entity<Inventory>().Property(e => e.Id).ValueGeneratedOnAdd();
+            builder.Entity<OrderItem>().Property(e => e.Id).ValueGeneratedOnAdd();
+            builder.Entity<Location>().Property(e => e.Id).ValueGeneratedOnAdd();
+            builder.Entity<Order>().Property(e => e.Id).ValueGeneratedOnAdd();
+            builder.Entity<Product>().Property(e => e.Id).ValueGeneratedOnAdd();
+            builder.Entity<InventoryItem>().Property(e => e.Id).ValueGeneratedOnAdd();
         }
     }
 }

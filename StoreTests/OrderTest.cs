@@ -18,7 +18,7 @@ namespace StoreTests
             //Act
 
             //Assert
-            Assert.Throws<NullReferenceException>(() => order.Items.Count > 0);
+            Assert.Throws<NullReferenceException>(() => order.OrderItems.Count > 0);
           
 
         }
@@ -28,7 +28,7 @@ namespace StoreTests
         {
             //Arrange
             int price=20;
-            OrderItem item=new Item();      
+            OrderItem item=new OrderItem();      
 
             //Act
             item.UnitPrice=price;           
@@ -46,7 +46,7 @@ namespace StoreTests
            
             Product p1=new Product();
             Inventory inventory=new Inventory();           
-            OrderItem item=new Item();      
+            OrderItem item=new OrderItem();      
 
             //Act
             int quantityOrder=20000;

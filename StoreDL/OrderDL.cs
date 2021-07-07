@@ -28,7 +28,7 @@ namespace StoreDL
 
         public List<Model.OrderItem> DisplayOrderDetails(int order_id)
         {
-            return _context.Items.Where(
+            return _context.OrderItems.Where(
                     item => item.OrderId == order_id
                 ).Select(
                     item => new Model.OrderItem
@@ -102,7 +102,7 @@ namespace StoreDL
         }
         public Model.OrderItem AddItem(Model.OrderItem item)
         {
-            _context.Items.Add(
+            _context.OrderItems.Add(
                 new Model.OrderItem
                 {
                     OrderId = item.OrderId,

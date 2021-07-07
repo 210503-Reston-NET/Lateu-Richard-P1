@@ -52,7 +52,7 @@ namespace StoreWebUI
             services.AddScoped<OrderItemDL, ItemDL>();
 
 
-            services.AddIdentity<User, Role>()
+            services.AddIdentity<ApplicationUser, ApplicationRole>()
                  .AddDefaultUI()
                  .AddDefaultTokenProviders()
                  .AddEntityFrameworkStores<StoreDBContext>();

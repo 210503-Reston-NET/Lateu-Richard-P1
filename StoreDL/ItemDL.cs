@@ -14,13 +14,13 @@ namespace StoreDL
         public ItemDL(StoreDBContext e) { this._context = e; }
         public OrderItem AddItem(OrderItem e)
         {
-            _context.Items.Add(e);
+            _context.OrderItems.Add(e);
             return e;
         }
 
         public OrderItem FindItemById(int id)
         {
-          return _context.Items.Find(id);
+          return _context.OrderItems.Find(id);
         }
     }
 }

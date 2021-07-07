@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StoreModels
 {
-   public  class Role: IdentityRole<int>
+   public  class ApplicationRole: IdentityRole
     {
       
     }
