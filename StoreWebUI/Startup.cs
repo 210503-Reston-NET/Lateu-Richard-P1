@@ -52,7 +52,15 @@ namespace StoreWebUI
             services.AddScoped<OrderItemDL, ItemDL>();
 
 
-            services.AddIdentity<ApplicationUser, ApplicationRole>()
+            services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
+            {
+                options.SignIn.RequireConfirmedAccount = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequiredLength=2;
+                options.Password.RequireDigit = false;
+                options.Password.RequireNonAlphanumeric = false;
+            })
                  .AddDefaultUI()
                  .AddDefaultTokenProviders()
                  .AddEntityFrameworkStores<StoreDBContext>();
@@ -77,6 +85,7 @@ namespace StoreWebUI
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
